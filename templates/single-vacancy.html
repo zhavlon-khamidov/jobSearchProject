@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Single Vacancy</h1>
+{% if student %}
+<p>Students name is {{ student.name }}
+    and surname is {{ student.surname }}
+</p>
+{% else %}
+<p>404 - Not found</p>
+{% endif %}
+{% endblock content %}
+
+{% block title %}Single Vacancy - {% endblock title %}

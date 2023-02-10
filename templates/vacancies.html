@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>List of all vacancies</h1>
+
+<ul>
+    {% comment %} 
+    <li>{{ students.0.name }}</li>
+    <li>{{ students.1.name }}</li>
+    <li>{{ students.2.name }}</li>
+    <li>{{ students.3.name }}</li> 
+    {% endcomment %}
+    {% for student in students %}
+    <a href="{% url 'vacancy' student.id %}"><li>{{ student.name }} {{ student.surname }}</li></a>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
+{% block title %}All Vacancies - {% endblock title %}
+
