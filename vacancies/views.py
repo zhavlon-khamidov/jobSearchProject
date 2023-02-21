@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+from . import models
+
 data = [
     {'id':1, 'name':'Abai','surname': 'Tentimishov'},
     {'id':2, 'name':'Azman','surname': 'Muratbekov'},
@@ -13,6 +15,9 @@ data = [
 def vacancies(request):
     # html_text = loader.render_to_string('vacancies.html')
     # return HttpResponse(html_text)
+    vacancy = models.Vacancy()
+    vacancy.title = "Hello World"
+    print(vacancy)
     return render(request,'vacancies.html',
                   {'page':"Vacancies",'students':data})
 
