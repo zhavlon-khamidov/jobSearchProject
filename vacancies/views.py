@@ -15,18 +15,16 @@ data = [
 def vacancies(request):
     # html_text = loader.render_to_string('vacancies.html')
     # return HttpResponse(html_text)
-    vacancy = models.Vacancy()
-    vacancy.title = "Hello World"
-    print(vacancy)
+    data = models.Vacancy.objects.all()
     return render(request,'vacancies.html',
-                  {'page':"Vacancies",'students':data})
+                  {'page':"Vacancies",'vacancies':data})
 
-def vacancy(request,id):
+def vacancy(request,pk):
     # return HttpResponse(f'Single vacancy with id: {id}')
-    student = None
-    for s in data:
+    vacancy = models.Vacancy.objects.get(id=pk)
+    """ for s in data:
         if s['id'] == id:
             student = s
-            break
+            break """
     return render(request, 'single-vacancy.html',
-                  {'page':'Single-vacancy','student':student})
+                  {'page':'Single-vacancy','vacancy':vacancy})

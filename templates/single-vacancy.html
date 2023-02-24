@@ -2,10 +2,9 @@
 
 {% block content %}
 <h1>Single Vacancy</h1>
-{% if student %}
-<p>Students name is {{ student.name }}
-    and surname is {{ student.surname }}
-</p>
+{% if vacancy %}
+<h2>{{ vacancy.title }}</h2>
+<p>{{ vacancy.description }}</p>
 {% else %}
 <p>404 - Not found</p>
 {% endif %}

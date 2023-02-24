@@ -3,6 +3,6 @@ from vacancies import views
 
 urlpatterns = [
     path('',views.vacancies, name='vacancies'),
-    path('vacancy/<int:id>', views.vacancy, name='vacancy')
+    path('vacancy/<str:pk>', views.vacancy, name='vacancy')
 ]
 

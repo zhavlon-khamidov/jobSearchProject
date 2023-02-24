@@ -10,8 +10,8 @@
     <li>{{ students.2.name }}</li>
     <li>{{ students.3.name }}</li> 
     {% endcomment %}
-    {% for student in students %}
-    <a href="{% url 'vacancy' student.id %}"><li>{{ student.name }} {{ student.surname }}</li></a>
+    {% for vacancy in vacancies %}
+    <a href="{% url 'vacancy' vacancy.id %}"><li>{{ vacancy.title }} {{ vacancy.company.name }}</li></a>
     {% endfor %}
 </ul>
 {% endblock content %}
