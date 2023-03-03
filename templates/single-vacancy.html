@@ -5,6 +5,8 @@
 {% if vacancy %}
 <h2>{{ vacancy.title }}</h2>
 <p>{{ vacancy.description }}</p>
+
+<a href="{% url 'updateVacancy' vacancy.id %}">Edit</a>
 {% else %}
 <p>404 - Not found</p>
 {% endif %}

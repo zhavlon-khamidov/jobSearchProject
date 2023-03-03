@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 
 from . import models
+from .forms import VacancyForm
 
 data = [
     {'id':1, 'name':'Abai','surname': 'Tentimishov'},
@@ -11,6 +12,30 @@ data = [
     {'id':4, 'name':'Nurislam','surname': 'Orozbaev'},
     {'id':5, 'name':'Sultan','surname': 'Sabatbekov'},
 ]
+
+
+def createVacancy(request):
+    form = VacancyForm()
+    
+    if request.method == "POST":
+        form = VacancyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('vacancies')
+    context = {'form': form}
+    return render(request, 'vacancy-form.html',context)
+
+def updateVacancy(request, pk):
+    vacancy = models.Vacancy.objects.get(id=pk)
+    form = VacancyForm(instance=vacancy)
+    
+    if request.method == "POST":
+        form = VacancyForm(request.POST, instance=vacancy)
+        if form.is_valid():
+            form.save()
+            return redirect('vacancy', vacancy.id)
+    context = {'form': form}
+    return render(request, 'vacancy-form.html',context)
 
 def vacancies(request):
     # html_text = loader.render_to_string('vacancies.html')

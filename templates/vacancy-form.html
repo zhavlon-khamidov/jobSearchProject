@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    select, textarea {
+        vertical-align: top;
+    }
+
+    .tut {
+        border: 1px solid red;
+    }
+
+    .tut p, .tut span {
+        color: red;
+        width: 200px;
+        height:200px;
+        border: 1px solid green;
+        padding: 20px;
+        margin: 150px;
+    }
+
+    form div {
+        border: 1px dotted purple;
+        padding: 20px;
+        margin: 5px;
+        width: content;
+    }
+</style>
+
+{% comment %} <div class="tut">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, dolorum? Illo aliquid quibusdam dolor, expedita iure obcaecati iste fuga fugiat! Molestiae, distinctio veniam. Facere amet quod est deleniti molestias architecto?
+    Hello World <p>Test text</p><p>Test text</p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem sed fugit et voluptas laboriosam animi maiores sequi sit voluptate vitae pariatur nostrum, in aperiam facere culpa autem est eum possimus?
+</div>
+
+<div class="tut">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, dolorum? Illo aliquid quibusdam dolor, expedita iure obcaecati iste fuga fugiat! Molestiae, distinctio veniam. Facere amet quod est deleniti molestias architecto?
+    Hello World <span>Test text</span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem sed fugit et voluptas laboriosam animi maiores sequi sit voluptate vitae pariatur nostrum, in aperiam facere culpa autem est eum possimus?
+</div> {% endcomment %}
+
+
+
+<form method="post">
+
+    {% csrf_token %}
+    {{ form.as_div }}
+
+    <input type="submit" value="Save">
+</form>
+
+{% endblock content %}
+
+{% block title %}Vacancy Form{% endblock title %}
