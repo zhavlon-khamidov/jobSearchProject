@@ -6,5 +6,6 @@ urlpatterns = [
     path('vacancy/<str:pk>', views.vacancy, name='vacancy'),
     path('create/',views.createVacancy, name='createVacancy'),
     path('update/<str:pk>',views.updateVacancy, name='updateVacancy'),
+    path('delete/<str:pk>',views.deleteVacancy, name='deleteVacancy'),
 ]
 

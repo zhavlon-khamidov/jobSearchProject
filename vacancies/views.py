@@ -14,6 +14,16 @@ data = [
 ]
 
 
+def deleteVacancy(request,pk):
+    vacancy = models.Vacancy.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        vacancy.delete()
+        return redirect('vacancies')
+    
+    context = {'vacancy': vacancy}
+    return render(request, 'delete.html', context)
+
 def createVacancy(request):
     form = VacancyForm()
     

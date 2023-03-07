@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form method="post">
+
+    {% csrf_token %}
+
+    Are you sure to remove the vacancy {{ vacancy.title }}
+    <div>
+        <a href="{% url 'vacancy' vacancy.id %}">Cancel</a>
+        <button>Delete</button>
+    </div>
+</form>
+{% endblock content %}

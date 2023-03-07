@@ -7,6 +7,8 @@
 <p>{{ vacancy.description }}</p>
 
 <a href="{% url 'updateVacancy' vacancy.id %}">Edit</a>
+<br>
+<a href="{% url 'deleteVacancy' vacancy.id %}">Delete</a>
 {% else %}
 <p>404 - Not found</p>
 {% endif %}
