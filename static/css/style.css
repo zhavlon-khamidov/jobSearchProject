@@ -1,0 +1,17 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(92, 92, 92);
+}
+
+a, a * {
+    all: unset;
+    color: goldenrod;
+}
+
+a:hover, a:hover *{
+    color: aqua;
+}
+
+h1, h2 {
+    text-shadow: 5px 5px 5px lightgrey;
+}

@@ -1,4 +1,7 @@
-<h2>Logo</h2>
+{% load static %}
+
+<img style="width:200px" src="{% static 'img/logo.png' %}" alt="Logo JobSearch">
+<!--  <h2>Logo</h2> -->
 <a href=" {% url 'createVacancy' %} ">Add vacancy</a>
 
 <hr>
