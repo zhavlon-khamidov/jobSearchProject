@@ -4,6 +4,7 @@ import uuid
 class Vacancy(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
+    featured_image = models.ImageField(blank=True, default='default.jpg')
     min_price = models.IntegerField(default=0)
     max_price = models.IntegerField(default=0)
     company = models.ForeignKey('Company',null=True,on_delete = models.CASCADE, default=None)

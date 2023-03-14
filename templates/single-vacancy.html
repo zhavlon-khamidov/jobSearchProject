@@ -3,6 +3,7 @@
 {% block content %}
 <h1>Single Vacancy</h1>
 {% if vacancy %}
+    <img src="{{ vacancy.featured_image.url }}" alt="Vacancy image">
 <h2>{{ vacancy.title }}</h2>
 <p>{{ vacancy.description }}</p>
 

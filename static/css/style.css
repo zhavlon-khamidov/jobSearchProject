@@ -3,8 +3,11 @@
     color: rgb(92, 92, 92);
 }
 
-a, a * {
+a {
     all: unset;
+}
+
+a *, a {
     color: goldenrod;
 }
 
@@ -14,4 +17,10 @@ a:hover, a:hover *{
 
 h1, h2 {
     text-shadow: 5px 5px 5px lightgrey;
+}
+
+img {
+    max-width: 50vw;
+    display: block;
+    margin: 0 auto;
 }
