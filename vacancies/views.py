@@ -28,7 +28,7 @@ def createVacancy(request):
     form = VacancyForm()
     
     if request.method == "POST":
-        form = VacancyForm(request.POST)
+        form = VacancyForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('vacancies')
