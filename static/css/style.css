@@ -11,7 +11,7 @@ a *, a {
     color: goldenrod;
 }
 
-a:hover, a:hover *{
+a:hover, a:hover * {
     color: aqua;
 }
 
@@ -23,4 +23,22 @@ img {
     max-width: 50vw;
     display: block;
     margin: 0 auto;
+}
+
+form > div {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+input {
+    padding: 0.5em;
+    border-radius: .5em;
+    border: none;
+    outline: 2px solid lightblue;
+}
+
+button {
+    padding: .5em 2em;
+    color: white;
+    background-color: #23f2a0;
 }

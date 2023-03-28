@@ -3,5 +3,11 @@
 <img style="width:200px" src="{% static 'img/logo.png' %}" alt="Logo JobSearch">
 <!--  <h2>Logo</h2> -->
 <a href=" {% url 'createVacancy' %} ">Add vacancy</a>
+{% if user.is_authenticated %}
+    <span>Welcome {{ user.get_username }}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
 
 <hr>

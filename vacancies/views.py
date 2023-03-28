@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.template import loader
+from django.contrib.auth.decorators import login_required
 
 from . import models
 from .forms import VacancyForm
@@ -13,7 +12,7 @@ data = [
     {'id':5, 'name':'Sultan','surname': 'Sabatbekov'},
 ]
 
-
+@login_required(login_url='login')
 def deleteVacancy(request,pk):
     vacancy = models.Vacancy.objects.get(id=pk)
     
@@ -24,7 +23,10 @@ def deleteVacancy(request,pk):
     context = {'vacancy': vacancy}
     return render(request, 'delete.html', context)
 
+@login_required(login_url='login')
 def createVacancy(request):
+    # if not request.user.is_authenticated:
+    #     return redirect('login')
     form = VacancyForm()
     
     if request.method == "POST":
@@ -33,8 +35,9 @@ def createVacancy(request):
             form.save()
             return redirect('vacancies')
     context = {'form': form}
-    return render(request, 'vacancy-form.html',context)
+    return render(request, 'vacancy-form.html', context)
 
+@login_required(login_url='login')
 def updateVacancy(request, pk):
     vacancy = models.Vacancy.objects.get(id=pk)
     form = VacancyForm(instance=vacancy)
@@ -45,13 +48,13 @@ def updateVacancy(request, pk):
             form.save()
             return redirect('vacancy', vacancy.id)
     context = {'form': form}
-    return render(request, 'vacancy-form.html',context)
+    return render(request, 'vacancy-form.html', context)
 
 def vacancies(request):
     # html_text = loader.render_to_string('vacancies.html')
     # return HttpResponse(html_text)
     data = models.Vacancy.objects.all()
-    return render(request,'vacancies.html',
+    return render(request, 'vacancies.html',
                   {'page':"Vacancies",'vacancies':data})
 
 def vacancy(request,pk):

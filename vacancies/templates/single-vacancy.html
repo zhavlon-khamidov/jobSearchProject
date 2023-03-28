@@ -6,10 +6,12 @@
     <img src="{{ vacancy.featured_image.url }}" alt="Vacancy image">
 <h2>{{ vacancy.title }}</h2>
 <p>{{ vacancy.description }}</p>
+{% if user.is_authenticated %}
 
-<a href="{% url 'updateVacancy' vacancy.id %}">Edit</a>
-<br>
-<a href="{% url 'deleteVacancy' vacancy.id %}">Delete</a>
+    <a class="button" href="{% url 'updateVacancy' vacancy.id %}">Edit</a>
+    <br>
+    <a class="button" href="{% url 'deleteVacancy' vacancy.id %}">Delete</a>
+{% endif %}
 {% else %}
 <p>404 - Not found</p>
 {% endif %}
