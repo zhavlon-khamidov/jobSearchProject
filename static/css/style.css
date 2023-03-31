@@ -42,3 +42,42 @@ button {
     color: white;
     background-color: #23f2a0;
 }
+
+.registration > div {
+    padding: 5px;
+    margin: 5px;
+    /*border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.helptext {
+    font-size: .7em;
+    order: 2;
+    color: #b75d97;
+}
+
+.helptext ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    color: inherit;
+    order: 2;
+}
+
+li {
+    color: inherit;
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+.errorlist {
+    margin: .1rem 0;
+    padding: .1rem 0;
+    list-style-type: none;
+    color: red;
+    font-size: .7em;
+    order: 1;
+}

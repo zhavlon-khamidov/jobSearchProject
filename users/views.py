@@ -1,9 +1,26 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 
 
 # Create your views here.
+
+def register_user(request):
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            print('User created:',user)
+            login(request, user)
+            return redirect('/')
+    context = {
+        "form" : form
+    }
+
+    return render(request, 'register.html', context)
 
 
 def login_user(request, next_url='vacancies'):
