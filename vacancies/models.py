@@ -9,7 +9,7 @@ class Vacancy(models.Model):
     max_price = models.IntegerField(default=0)
     company = models.ForeignKey('Company',null=True,on_delete = models.CASCADE, default=None)
     city = models.CharField(blank=True, null=True,max_length=200)
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag', blank=True)
     
     created_date = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, unique=True,editable=False)
@@ -17,6 +17,9 @@ class Vacancy(models.Model):
     
     def __str__(self) -> str:
         return self.title + ' (' + str(self.company) + ')'
+
+    # class Meta:
+    #     ordering = ['created_date']
     
 
 class Company(models.Model):
