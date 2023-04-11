@@ -8,10 +8,14 @@ $ ```sudo ln -s /usr/bin/python3 /usr/bin/python```
 
 1. $ ```git clone https://github.com/zhavlon-khamidov/jobSearchProject.git```
 
-1. open folder in vs code or any ide
+1. open folder in vs code or any ide  
+$ ```code jobSearchProject```
 
-1. In terminal $ ```python -m virtualenv env```
-1. In linux OS $ ```source env/bin/activate```, and in [Widnows OS](https://medium.com/@astontechnologies/how-to-setup-a-virtual-development-environment-for-python-with-windows-powershell-4cd34b2f9f9b) `PS > .\env\Scripts\activate`. 
+1. In terminal  
+$ ```python -m virtualenv env```
+1. In linux OS  
+$ ```source env/bin/activate```, and in [Widnows OS](https://medium.com/@astontechnologies/how-to-setup-a-virtual-development-environment-for-python-with-windows-powershell-4cd34b2f9f9b)  
+`PS > .\env\Scripts\activate`.  
    Pay attention, when your environment activated in console you'll see the name of your virtual environment. ![](venv-active.png)
 1. $ ```pip install -r requirements.txt```
 1. $ ```python manage.py migrate```
